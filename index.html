@@ -3,140 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keerthik Roshan G | AI & Music</title>
+    <title>Keerthik Roshan G | AI & Data Science Academic Portfolio</title>
+    <meta name="description" content="Academic & Engineering Portfolio of Keerthik Roshan G. - AI & Data Science Student, LLM Specialist, and Data Science Intern.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Sleek Custom Cursor Elements -->
-    <div id="cursor-dot"></div>
-    <div id="cursor-ring"></div>
-
-    <!-- Ambient Glow Background -->
-    <div class="bg-ambient">
-        <div class="ambient-orb-1"></div>
-        <div class="ambient-orb-2"></div>
+    <!-- VECTOR SVG CUSTOM CURSOR RETICLE -->
+    <div id="vector-cursor">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="3" class="cursor-center-dot" />
+            <circle cx="20" cy="20" r="16" class="cursor-vector-ring" stroke-dasharray="4 2" />
+            <path d="M20 0 V6 M20 34 V40 M0 20 H6 M34 20 H40" stroke="rgba(0,243,255,0.6)" stroke-width="1.5"/>
+        </svg>
     </div>
 
-    <!-- HERO SECTION -->
-    <header class="container hero-container">
-        <div class="hero-content reveal">
-            <span class="hero-tag">Portfolio</span>
-            <h1>KEERTHIK ROSHAN G<span class="italic-styled">.</span></h1>
-            <p class="hero-sub">
-                AI & Data Science Student | Music Producer | Data Scientist Intern.<br>
-                Exploring the edge of <span class="italic-highlight">Generative AI</span> and <span class="italic-styled">Sound Design</span>.
+    <!-- LIQUID AMBIENT BACKGROUND GLOW -->
+    <div class="bg-liquid-glow">
+        <div class="liquid-orb orb-1"></div>
+        <div class="liquid-orb orb-2"></div>
+    </div>
+
+    <!-- FIXED SMART SCROLL INDEX PANEL (Left Tracker) -->
+    <div class="smart-scroll-tracker">
+        <a href="#hero" class="tracker-node active">
+            <span class="tracker-line"></span>
+            <span class="tracker-label">01 // ACADEMICS</span>
+        </a>
+        <a href="#experience" class="tracker-node">
+            <span class="tracker-line"></span>
+            <span class="tracker-label">02 // EXPERIENCE</span>
+        </a>
+        <a href="#projects" class="tracker-node">
+            <span class="tracker-line"></span>
+            <span class="tracker-label">03 // PROJECTS</span>
+        </a>
+        <a href="#skills" class="tracker-node">
+            <span class="tracker-line"></span>
+            <span class="tracker-label">04 // MATRIX</span>
+        </a>
+        <a href="#contact" class="tracker-node">
+            <span class="tracker-line"></span>
+            <span class="tracker-label">05 // CONNECT</span>
+        </a>
+    </div>
+
+    <!-- LIQUID GLASS NAVBAR -->
+    <nav class="navbar">
+        <a href="#hero" class="brand-title">
+            <span class="brand-dot"></span>
+            <span>KEERTHIK ROSHAN G.</span>
+        </a>
+
+        <ul class="nav-menu">
+            <li><a href="#hero">Academics</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- PANEL 01: HERO / ACADEMIC OVERVIEW -->
+    <section id="hero" class="container smart-panel active-panel">
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="academic-badge">
+                    <span style="width:6px; height:6px; background:var(--accent-cyan); border-radius:50%; box-shadow:0 0 6px var(--accent-cyan);"></span>
+                    <span>AI & DATA SCIENCE CANDIDATE</span>
+                </div>
+
+                <h1 class="hero-title">
+                    KEERTHIK ROSHAN G<span class="italic-styled">.</span>
+                </h1>
+
+                <p class="hero-desc">
+                    AI & Data Science Student | Data Scientist Intern | Open-Source Enthusiast.<br>
+                    Specializing in <span class="italic-highlight">Generative AI</span>, LLM deployment, and data modeling frameworks.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-liquid">
+                        <span>VIEW ACADEMIC PROJECTS</span>
+                    </a>
+                    <a href="#experience" class="btn-liquid-secondary">
+                        <span>FIELD EXPERIENCE</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-liquid-frame">
+                    <img src="images/profile.jpg" alt="Keerthik Roshan G" class="profile-liquid-img">
+                </div>
+            </div>
+        </div>
+
+        <div class="academic-stats-grid">
+            <div class="stat-card">
+                <div class="stat-val">20 Yrs</div>
+                <div class="stat-lbl">AI & DS Student</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">DigiDARA</div>
+                <div class="stat-lbl">Data Science Intern</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">VidhiDesk</div>
+                <div class="stat-lbl">Legal NLP Platform</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">Open Source</div>
+                <div class="stat-lbl">LLM Exploration</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 02: EXPERIENCE -->
+    <section id="experience" class="container smart-panel">
+        <span class="section-tag">// 02. FIELD EXPERIENCE</span>
+        <h2 class="section-title">Industry Deployment <span class="italic-styled">& Analytics</span></h2>
+        <p class="section-desc">Practical application of data science libraries and predictive models.</p>
+
+        <div class="liquid-glass-card">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                <div>
+                    <h3 class="card-title">Data Science Intern</h3>
+                    <p style="color: var(--accent-cyan); font-weight: 600;">DigiDARA Technologies, Trichy</p>
+                </div>
+                <span class="badge-capsule badge-completed">1 MONTH DURATION</span>
+            </div>
+
+            <p class="card-desc">
+                Engaged in end-to-end data analytics and predictive modeling for real-world datasets:
             </p>
-            <a href="#contact" class="btn">Let's Connect</a>
-        </div>
-        
-        <div class="profile-img-container reveal">
-            <img src="images/profile.jpg" alt="Keerthik Roshan" class="profile-img">
-        </div>
-    </header>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="container reveal">
-        <h2>About <span class="italic-styled">Me</span></h2>
-        <p style="max-width: 800px; color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
-            I am a 20-year-old AI & Data Science student driven by the urge to experiment with the development and management of <strong style="color: var(--text-main);">LLMs and Agentic AI</strong>.
-            <br><br>
-            A dedicated tech enthusiast since school, I actively explore open-source ecosystems—dissecting new frameworks to deploy AI effectively. When I'm not training models, I'm analyzing legal frameworks or channeling creativity into <strong style="color: var(--text-main);"><span class="italic-styled">Music Production</span> & Direction</strong>.
+            <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+                <li>Applied Python, SQL, and core Data Science libraries to preprocess complex data.</li>
+                <li>Conducted thorough Exploratory Data Analysis (EDA) on Loan Approval datasets.</li>
+                <li>Deployed predictive machine learning models for risk efficiency benchmarking (Capstone Project).</li>
+            </ul>
+
+            <div class="tag-cloud">
+                <span class="tag-item">Python</span>
+                <span class="tag-item">SQL</span>
+                <span class="tag-item">Pandas / NumPy</span>
+                <span class="tag-item">EDA Pipelines</span>
+                <span class="tag-item">Predictive Models</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 03: PROJECTS -->
+    <section id="projects" class="container smart-panel">
+        <span class="section-tag">// 03. ENGINEERING & RESEARCH</span>
+        <h2 class="section-title">Selected Academic <span class="italic-styled">Works</span></h2>
+        <p class="section-desc">NLP applications, AI workflow models, and legal research papers.</p>
+
+        <div class="grid">
+            <!-- Project 1 -->
+            <div class="liquid-glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                    <h3 class="card-title" style="margin-bottom:0;">VidhiDesk</h3>
+                    <span class="badge-capsule badge-progress">IN PROGRESS</span>
+                </div>
+                <p class="card-desc">
+                    Python-based legal research assistant designed for law students. Parses legal databases using Natural Language Processing (NLP) to streamline case retrieval and legal document synthesis.
+                </p>
+                <div class="tag-cloud">
+                    <span class="tag-item">Python</span>
+                    <span class="tag-item">NLP</span>
+                    <span class="tag-item">Legal Tech</span>
+                    <span class="tag-item">Document Search</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="liquid-glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                    <h3 class="card-title" style="margin-bottom:0;">Agentic AI Systems</h3>
+                    <span class="badge-capsule badge-completed">RESEARCH</span>
+                </div>
+                <p class="card-desc">
+                    Dissecting open-source LLM frameworks and building agentic execution pipelines to deploy AI models effectively across complex workflows.
+                </p>
+                <div class="tag-cloud">
+                    <span class="tag-item">LLMs</span>
+                    <span class="tag-item">Agentic AI</span>
+                    <span class="tag-item">Open Source</span>
+                    <span class="tag-item">Python</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="liquid-glass-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                    <h3 class="card-title" style="margin-bottom:0;">Equality & Affirmative Action</h3>
+                    <span class="badge-capsule badge-completed">UNOM RESEARCH</span>
+                </div>
+                <p class="card-desc">
+                    Research paper on <em>"Sub-categorization in Reservations and Social Justice Dilemmas."</em> Analyzed and presented for UNOM Dept of Legal Studies.
+                </p>
+                <div class="tag-cloud">
+                    <span class="tag-item">Constitutional Law</span>
+                    <span class="tag-item">Research Paper</span>
+                    <span class="tag-item">Social Justice</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 04: SKILLS MATRIX -->
+    <section id="skills" class="container smart-panel">
+        <span class="section-tag">// 04. TECHNICAL SPECTRUM</span>
+        <h2 class="section-title">Technical <span class="italic-styled">& Creative Matrix</span></h2>
+        <p class="section-desc">Primary focus on Data Science and Code, with secondary creative pursuits.</p>
+
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <!-- Academic & Code Focus (Primary) -->
+            <div class="liquid-glass-card" style="border-left: 3px solid var(--accent-cyan);">
+                <h3 class="card-title" style="margin-bottom: 1.2rem;">Data Science & Code</h3>
+                <div class="tag-cloud">
+                    <span class="tag-item">Python</span>
+                    <span class="tag-item">SQL</span>
+                    <span class="tag-item">Pandas / NumPy</span>
+                    <span class="tag-item">LLM Frameworks</span>
+                    <span class="tag-item">Agentic AI</span>
+                    <span class="tag-item">JavaScript (Learning)</span>
+                </div>
+            </div>
+
+            <!-- Creative & Music (Secondary/Lesser Emphasis) -->
+            <div class="liquid-glass-card" style="border-left: 3px solid var(--accent-purple);">
+                <h3 class="card-title" style="margin-bottom: 1.2rem;">Creative & Audio</h3>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1rem;">Secondary creative pursuits and vocal direction (@roznmusic):</p>
+                <div class="tag-cloud">
+                    <span class="tag-item">FL Studio</span>
+                    <span class="tag-item">Music Production</span>
+                    <span class="tag-item">Vocals</span>
+                    <span class="tag-item">Typography</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL 05: CONTACT -->
+    <section id="contact" class="container smart-panel" style="text-align: center;">
+        <span class="section-tag">// 05. INITIATE CONTACT</span>
+        <h2 class="section-title" style="margin-bottom: 1rem;">Let's <span class="italic-styled">Connect</span></h2>
+        <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem auto;">
+            Drop an email or check out my repositories and social profiles.
         </p>
-    </section>
 
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="container reveal">
-        <h2><span class="italic-styled">Experience</span></h2>
-        <div class="grid">
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
-                    <div>
-                        <h3>Data Science Intern</h3>
-                        <p style="color: var(--accent-purple); font-weight: 600; margin-bottom: 0;">DigiDARA Technologies, Trichy</p>
-                    </div>
-                    <span style="font-size: 0.8rem; color: var(--accent-cyan); border: 1px solid rgba(0,243,255,0.3); padding: 3px 10px; border-radius: 20px; font-family: var(--font-mono);">1 Month</span>
-                </div>
-                <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.7;">
-                    <li>Proficiency in Python, SQL, and Data Science libraries.</li>
-                    <li>Conducted EDA on Loan Approval datasets.</li>
-                    <li>Deployed predictive models for efficiency testing (Capstone).</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section id="projects" class="container reveal">
-        <h2>Selected <span class="italic-styled">Works</span></h2>
-        <div class="grid">
-            
-            <div class="card">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <h3>VidhiDesk</h3>
-                    <span style="color: #FFC107; font-size: 0.75rem; border: 1px solid #FFC107; padding: 3px 8px; border-radius: 4px; font-family: var(--font-mono);">IN PROGRESS</span>
-                </div>
-                <p style="margin-top: 10px;">Python-based legal research assistant for law students. Parses legal databases to streamline case finding and documentation.</p>
-                <div class="tags">
-                    <span>Python</span>
-                    <span>NLP</span>
-                    <span>Legal Tech</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>Equality & Affirmative Action</h3>
-                <p>Research paper on "Sub-categorization in Reservations and Social Justice Dilemmas." Analyzed for UNOM Dept of Legal Studies.</p>
-                <div class="tags">
-                    <span>Research</span>
-                    <span>Constitutional Law</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="container reveal">
-        <h2>Tech & <span class="italic-styled">Art</span></h2>
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-            <div class="card" style="border-left: 3px solid var(--accent-purple);">
-                <h3>Code</h3>
-                <div class="tags">
-                    <span>Python</span>
-                    <span>SQL</span>
-                    <span>Pandas/NumPy</span>
-                    <span>LLMs</span>
-                    <span>JavaScript (Learning)</span>
-                </div>
-            </div>
-            <div class="card" style="border-left: 3px solid var(--accent-cyan);">
-                <h3>Creative</h3>
-                <div class="tags">
-                    <span>FL Studio</span>
-                    <span>Music Production</span>
-                    <span>Vocals</span>
-                    <span>Typography</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="container reveal" style="text-align: center;">
-        <h2>Let's <span class="italic-styled">Connect</span></h2>
-        <p style="color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem;">Drop an email or check out my repos.</p>
-        
-        <div class="contact-links">
-            <a href="mailto:gkrosh.0712@gmail.com" class="contact-item">Email</a>
-            <a href="https://linkedin.com/in/keerthikroshan" target="_blank" rel="noopener" class="contact-item">LinkedIn</a>
-            <a href="https://github.com/KeerthikRoshan7" target="_blank" rel="noopener" class="contact-item">GitHub</a>
-            <a href="https://instagram.com/roznmusic" target="_blank" rel="noopener" class="contact-item">Instagram</a>
+        <div class="contact-grid">
+            <a href="mailto:gkrosh.0712@gmail.com" class="contact-pill">
+                <span>gkrosh.0712@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/keerthikroshan" target="_blank" rel="noopener" class="contact-pill">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/KeerthikRoshan7" target="_blank" rel="noopener" class="contact-pill">
+                <span>GitHub</span>
+            </a>
+            <a href="https://instagram.com/roznmusic" target="_blank" rel="noopener" class="contact-pill">
+                <span>Instagram (@roznmusic)</span>
+            </a>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Keerthik Roshan G.</p>
+        <div class="container">
+            <p>© 2026 Keerthik Roshan G. | AI & Data Science Candidate.</p>
+        </div>
     </footer>
 
     <script src="js/app.js"></script>

@@ -1,74 +1,76 @@
 /* ==========================================================================
-   KEERTHIK ROSHAN G. | PORTFOLIO ANIMATIONS & SMOOTH CURSOR ENGINE
+   KEERTHIK ROSHAN G. | VECTOR CURSOR & SMART SCROLL PANEL ENGINE
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initCustomCursor();
-    initScrollReveal();
+    initVectorCursor();
+    initSmartScrollTracker();
 });
 
-/* 1. MINIMALIST SMOOTH CUSTOM CURSOR ENGINE */
-function initCustomCursor() {
-    const dot = document.getElementById('cursor-dot');
-    const ring = document.getElementById('cursor-ring');
-
-    if (!dot || !ring) return;
+/* 1. VECTOR SVG CURSOR ENGINE */
+function initVectorCursor() {
+    const cursor = document.getElementById('vector-cursor');
+    if (!cursor) return;
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
-
-    let ringX = mouseX;
-    let ringY = mouseY;
+    let currX = mouseX;
+    let currY = mouseY;
 
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-
-        // Immediate position for center dot
-        dot.style.left = `${mouseX}px`;
-        dot.style.top = `${mouseY}px`;
     });
 
-    // Smooth inertia lag for outer ring
-    function renderCursor() {
-        ringX += (mouseX - ringX) * 0.15;
-        ringY += (mouseY - ringY) * 0.15;
+    function animCursor() {
+        currX += (mouseX - currX) * 0.2;
+        currY += (mouseY - currY) * 0.2;
 
-        ring.style.left = `${ringX}px`;
-        ring.style.top = `${ringY}px`;
+        cursor.style.left = `${currX}px`;
+        cursor.style.top = `${currY}px`;
 
-        requestAnimationFrame(renderCursor);
+        requestAnimationFrame(animCursor);
     }
-    requestAnimationFrame(renderCursor);
+    requestAnimationFrame(animCursor);
 
-    // Interactive Hover Listeners
-    const interactiveElements = document.querySelectorAll('a, button, .card, .contact-item, .btn');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
+    // Dynamic Hover Listeners for Vector Cursor Amplification
+    const hoverTargets = document.querySelectorAll('a, button, .liquid-glass-card, .contact-pill');
+    hoverTargets.forEach(target => {
+        target.addEventListener('mouseenter', () => {
             document.body.classList.add('cursor-hover');
         });
-        el.addEventListener('mouseleave', () => {
+        target.addEventListener('mouseleave', () => {
             document.body.classList.remove('cursor-hover');
         });
     });
 }
 
-/* 2. SCROLL REVEAL ANIMATIONS */
-function initScrollReveal() {
-    const reveals = document.querySelectorAll('.reveal');
+/* 2. SMART SCROLL PANEL HIGHLIGHTING & INDEX TRACKER */
+function initSmartScrollTracker() {
+    const panels = document.querySelectorAll('.smart-panel');
+    const trackerNodes = document.querySelectorAll('.tracker-node');
 
     const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.35
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
+                // Highlight active section
+                panels.forEach(p => p.classList.remove('active-panel'));
+                entry.target.classList.add('active-panel');
+
+                const panelId = entry.target.getAttribute('id');
+                trackerNodes.forEach(node => {
+                    node.classList.remove('active');
+                    if (node.getAttribute('href') === `#${panelId}`) {
+                        node.classList.add('active');
+                    }
+                });
             }
         });
     }, observerOptions);
 
-    reveals.forEach(el => observer.observe(el));
+    panels.forEach(panel => observer.observe(panel));
 }
