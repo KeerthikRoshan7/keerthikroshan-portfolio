@@ -1,18 +1,35 @@
 /* ==========================================================================
-   KEERTHIK ROSHAN G. | ANIME.JS MOTION ENGINE INFRASTRUCTURE
-   Spring Physics, Timeline Orchestration, Staggered Reveals & Vector Cursor
+   KEERTHIK ROSHAN G. | HYPER-INTERFACE ANIME.JS ENGINE
+   Motion Orchestration: Timelines, Reticle Physics, Live Clock & Magnetic Pull
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initHeroTimeline();
-    initVectorCursorEngine();
-    initScrollStaggerAnimations();
+    initLiveClock();
+    initHeroEntranceTimeline();
+    initVectorReticle();
+    initScrollStaggers();
     initMagneticHoverPhysics();
-    initSmartScrollTracker();
+    initIndexTracker();
 });
 
-/* 1. ANIME.JS HERO ENTRANCE TIMELINE */
-function initHeroTimeline() {
+/* 1. LIVE TIME CLOCK (IST // CHENNAI, IN) */
+function initLiveClock() {
+    const clockEl = document.getElementById('live-time-clock');
+    if (!clockEl) return;
+
+    function updateClock() {
+        const now = new Date();
+        const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+        const timeStr = now.toLocaleTimeString('en-US', options);
+        clockEl.textContent = `${timeStr} IST`;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+/* 2. ANIME.JS HERO TIMELINE */
+function initHeroEntranceTimeline() {
     if (typeof anime === 'undefined') return;
 
     const timeline = anime.timeline({
@@ -22,54 +39,47 @@ function initHeroTimeline() {
 
     timeline
         .add({
-            targets: '.academic-badge',
+            targets: '.hero-pill-badge',
             opacity: [0, 1],
             translateY: [-20, 0],
             duration: 800
         })
         .add({
-            targets: '.hero-title',
+            targets: '.hero-main-title',
             opacity: [0, 1],
-            translateY: [30, 0],
-            scale: [0.96, 1],
-            duration: 1000,
-            easing: 'spring(1, 80, 12, 0)'
+            translateY: [35, 0],
+            scale: [0.95, 1],
+            duration: 1100,
+            easing: 'spring(1, 80, 11, 0)'
         }, '-=600')
         .add({
-            targets: '.hero-desc',
+            targets: '.hero-lead-text',
+            opacity: [0, 1],
+            translateY: [20, 0],
+            duration: 800
+        }, '-=700')
+        .add({
+            targets: '.hero-cta-group',
             opacity: [0, 1],
             translateY: [20, 0],
             duration: 800
         }, '-=600')
         .add({
-            targets: '.hero-actions',
-            opacity: [0, 1],
-            translateY: [20, 0],
-            duration: 800
-        }, '-=600')
-        .add({
-            targets: '.profile-liquid-frame',
+            targets: '.profile-avatar-wrapper',
             opacity: [0, 1],
             scale: [0.8, 1],
             rotate: [-10, 0],
             duration: 1200,
             easing: 'spring(1, 70, 10, 0)'
-        }, '-=900')
-        .add({
-            targets: '.stat-card',
-            opacity: [0, 1],
-            translateY: [30, 0],
-            delay: anime.stagger(120),
-            duration: 800
-        }, '-=800');
+        }, '-=900');
 }
 
-/* 2. ANIME.JS VECTOR CURSOR & RETICLE ENGINE */
-function initVectorCursorEngine() {
-    const cursor = document.getElementById('vector-cursor');
-    const svgReticle = cursor ? cursor.querySelector('svg') : null;
+/* 3. VECTOR RETICLE CURSOR */
+function initVectorReticle() {
+    const reticle = document.getElementById('cursor-reticle');
+    const svg = reticle ? reticle.querySelector('svg') : null;
 
-    if (!cursor || typeof anime === 'undefined') return;
+    if (!reticle || typeof anime === 'undefined') return;
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
@@ -78,9 +88,8 @@ function initVectorCursorEngine() {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
-        // Smooth Anime.js translation for cursor position
         anime({
-            targets: cursor,
+            targets: reticle,
             left: mouseX,
             top: mouseY,
             duration: 250,
@@ -88,10 +97,9 @@ function initVectorCursorEngine() {
         });
     });
 
-    // Continuous smooth rotation for the reticle ring
-    if (svgReticle) {
+    if (svg) {
         anime({
-            targets: svgReticle,
+            targets: svg,
             rotate: 360,
             duration: 12000,
             loop: true,
@@ -99,62 +107,59 @@ function initVectorCursorEngine() {
         });
     }
 
-    // Hover Amplification using Anime.js
-    const hoverElements = document.querySelectorAll('a, button, .liquid-glass-card, .contact-pill');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
+    const hoverTargets = document.querySelectorAll('a, button, .hyper-glass-card, .contact-pill-item');
+    hoverTargets.forEach(target => {
+        target.addEventListener('mouseenter', () => {
             anime({
-                targets: cursor,
-                scale: 1.4,
+                targets: reticle,
+                scale: 1.45,
                 duration: 400,
                 easing: 'easeOutElastic(1, .6)'
             });
             anime({
-                targets: '#vector-cursor .cursor-dot',
+                targets: '#cursor-reticle .reticle-dot',
                 fill: '#ffffff',
                 duration: 300
             });
         });
 
-        el.addEventListener('mouseleave', () => {
+        target.addEventListener('mouseleave', () => {
             anime({
-                targets: cursor,
+                targets: reticle,
                 scale: 1,
                 duration: 400,
                 easing: 'easeOutExpo'
             });
             anime({
-                targets: '#vector-cursor .cursor-dot',
-                fill: '#00f3ff',
+                targets: '#cursor-reticle .reticle-dot',
+                fill: '#00f0ff',
                 duration: 300
             });
         });
     });
 }
 
-/* 3. SCROLL OBSERVER & ANIME.JS STAGGERED REVEALS */
-function initScrollStaggerAnimations() {
+/* 4. SCROLL STAGGER OBSERVER */
+function initScrollStaggers() {
     if (typeof anime === 'undefined') return;
 
-    const sections = document.querySelectorAll('section.smart-panel:not(#hero)');
+    const panels = document.querySelectorAll('section.panel-section:not(#overview)');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                 entry.target.classList.add('animated');
 
-                const tag = entry.target.querySelector('.section-tag');
-                const title = entry.target.querySelector('.section-title');
-                const desc = entry.target.querySelector('.section-desc');
-                const cards = entry.target.querySelectorAll('.liquid-glass-card');
-                const pills = entry.target.querySelectorAll('.contact-pill');
+                const tag = entry.target.querySelector('.section-meta-tag');
+                const title = entry.target.querySelector('.section-main-title');
+                const desc = entry.target.querySelector('.section-subtitle-text');
+                const cards = entry.target.querySelectorAll('.hyper-glass-card');
+                const pills = entry.target.querySelectorAll('.contact-pill-item');
 
-                const panelTimeline = anime.timeline({
-                    easing: 'easeOutExpo'
-                });
+                const timeline = anime.timeline({ easing: 'easeOutExpo' });
 
                 if (tag) {
-                    panelTimeline.add({
+                    timeline.add({
                         targets: tag,
                         opacity: [0, 1],
                         translateX: [-20, 0],
@@ -163,7 +168,7 @@ function initScrollStaggerAnimations() {
                 }
 
                 if (title) {
-                    panelTimeline.add({
+                    timeline.add({
                         targets: title,
                         opacity: [0, 1],
                         translateY: [30, 0],
@@ -173,7 +178,7 @@ function initScrollStaggerAnimations() {
                 }
 
                 if (desc) {
-                    panelTimeline.add({
+                    timeline.add({
                         targets: desc,
                         opacity: [0, 1],
                         translateY: [20, 0],
@@ -182,7 +187,7 @@ function initScrollStaggerAnimations() {
                 }
 
                 if (cards.length > 0) {
-                    panelTimeline.add({
+                    timeline.add({
                         targets: cards,
                         opacity: [0, 1],
                         translateY: [40, 0],
@@ -194,7 +199,7 @@ function initScrollStaggerAnimations() {
                 }
 
                 if (pills.length > 0) {
-                    panelTimeline.add({
+                    timeline.add({
                         targets: pills,
                         opacity: [0, 1],
                         translateY: [30, 0],
@@ -208,16 +213,16 @@ function initScrollStaggerAnimations() {
         });
     }, { threshold: 0.2 });
 
-    sections.forEach(s => observer.observe(s));
+    panels.forEach(p => observer.observe(p));
 }
 
-/* 4. MAGNETIC HOVER PHYSICS VIA ANIME.JS */
+/* 5. MAGNETIC HOVER PHYSICS */
 function initMagneticHoverPhysics() {
     if (typeof anime === 'undefined') return;
 
-    const magneticElements = document.querySelectorAll('.btn-liquid, .btn-liquid-secondary, .liquid-glass-card');
+    const magnetics = document.querySelectorAll('.btn-hyper, .btn-hyper-outline, .hyper-glass-card');
 
-    magneticElements.forEach(el => {
+    magnetics.forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
             const x = e.clientX - rect.left - rect.width / 2;
@@ -225,8 +230,8 @@ function initMagneticHoverPhysics() {
 
             anime({
                 targets: el,
-                translateX: x * 0.15,
-                translateY: y * 0.15,
+                translateX: x * 0.12,
+                translateY: y * 0.12,
                 duration: 400,
                 easing: 'easeOutQuad'
             });
@@ -244,22 +249,22 @@ function initMagneticHoverPhysics() {
     });
 }
 
-/* 5. SMART SCROLL TRACKER INDEX HIGHLIGHTING */
-function initSmartScrollTracker() {
-    const panels = document.querySelectorAll('.smart-panel');
-    const trackerNodes = document.querySelectorAll('.tracker-node');
+/* 6. LEFT INDEX TRACKER */
+function initIndexTracker() {
+    const panels = document.querySelectorAll('.panel-section');
+    const trackerItems = document.querySelectorAll('.tracker-item');
 
-    const trackerObserver = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const panelId = entry.target.getAttribute('id');
-                trackerNodes.forEach(node => {
-                    node.classList.remove('active');
-                    if (node.getAttribute('href') === `#${panelId}`) {
-                        node.classList.add('active');
+                const id = entry.target.getAttribute('id');
+                trackerItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === `#${id}`) {
+                        item.classList.add('active');
                         if (typeof anime !== 'undefined') {
                             anime({
-                                targets: node.querySelector('.tracker-line'),
+                                targets: item.querySelector('.tracker-bar'),
                                 width: [16, 34],
                                 duration: 400,
                                 easing: 'easeOutExpo'
@@ -271,5 +276,5 @@ function initSmartScrollTracker() {
         });
     }, { threshold: 0.35 });
 
-    panels.forEach(panel => trackerObserver.observe(panel));
+    panels.forEach(p => observer.observe(p));
 }
