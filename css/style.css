@@ -1,26 +1,25 @@
 /* ==========================================================================
-   KEERTHIK ROSHAN G. | LIQUID GLASS ACADEMIC PORTFOLIO SYSTEM
-   Focus: AI & Data Science Academics x Liquid Glassmorphism x Vector Cursor
+   KEERTHIK ROSHAN G. | ANIME.JS POWERED LIQUID GLASS PORTFOLIO
+   Motion Infrastructure: Anime.js Timelines, Staggers & Spring Physics
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root {
-    --bg-dark: #040407;
-    --bg-surface: #0a0b12;
+    --bg-dark: #030306;
+    --bg-surface: #090a10;
 
-    /* Liquid Glass Tokens */
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-bg-hover: rgba(255, 255, 255, 0.07);
+    /* Liquid Glass Design System */
+    --glass-bg: rgba(255, 255, 255, 0.035);
+    --glass-bg-hover: rgba(255, 255, 255, 0.075);
     --glass-border: rgba(255, 255, 255, 0.12);
-    --glass-border-glow: rgba(0, 243, 255, 0.4);
-    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    --glass-border-glow: rgba(0, 243, 255, 0.5);
+    --glass-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
 
     --accent-cyan: #00f3ff;
-    --accent-cyan-glow: rgba(0, 243, 255, 0.3);
+    --accent-cyan-glow: rgba(0, 243, 255, 0.35);
     --accent-purple: #9d4eff;
-    --accent-purple-glow: rgba(157, 78, 255, 0.3);
-    --accent-blue: #3b82f6;
+    --accent-purple-glow: rgba(157, 78, 255, 0.35);
 
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
@@ -33,7 +32,7 @@
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* HIDE BROWSER CURSOR GLOBALLY */
+/* HIDE DEFAULT BROWSER CURSOR GLOBALLY */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -56,58 +55,43 @@ body {
     position: relative;
 }
 
-/* VECTOR SVG CUSTOM CURSOR */
+/* ANIME.JS CONTROLLED VECTOR CURSOR */
 #vector-cursor {
     position: fixed;
     top: 0;
     left: 0;
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
     pointer-events: none;
     z-index: 999999;
     transform: translate(-50%, -50%);
-    transition: transform 0.08s ease-out, width 0.3s ease, height 0.3s ease;
+    will-change: transform;
 }
 
 #vector-cursor svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 0 8px var(--accent-cyan));
-    transition: all 0.3s var(--ease-out-expo);
+    filter: drop-shadow(0 0 10px var(--accent-cyan));
+    transform-origin: center center;
 }
 
-#vector-cursor .cursor-center-dot {
+#vector-cursor .cursor-dot {
     fill: var(--accent-cyan);
     transition: fill 0.3s ease;
 }
 
-#vector-cursor .cursor-vector-ring {
+#vector-cursor .cursor-ring {
     stroke: var(--accent-purple);
     stroke-width: 1.5;
-    transition: stroke 0.3s ease, stroke-dasharray 0.3s ease;
+    transition: stroke 0.3s ease;
 }
 
-/* Vector Cursor Hover State */
-body.cursor-hover #vector-cursor {
-    width: 56px;
-    height: 56px;
+#vector-cursor .cursor-crosshair {
+    stroke: rgba(0, 243, 255, 0.6);
+    stroke-width: 1.5;
 }
 
-body.cursor-hover #vector-cursor .cursor-center-dot {
-    fill: #ffffff;
-}
-
-body.cursor-hover #vector-cursor .cursor-vector-ring {
-    stroke: var(--accent-cyan);
-    stroke-dasharray: 6 3;
-    animation: spinVector 6s linear infinite;
-}
-
-@keyframes spinVector {
-    100% { transform: rotate(360deg); }
-}
-
-/* BACKGROUND LIQUID AMBIENT ORBS */
+/* LIQUID AMBIENT BACKGROUND GLOW */
 .bg-liquid-glow {
     position: fixed;
     top: 0;
@@ -122,9 +106,9 @@ body.cursor-hover #vector-cursor .cursor-vector-ring {
 .liquid-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(140px);
+    filter: blur(150px);
     opacity: 0.35;
-    animation: liquidFloat 16s ease-in-out infinite alternate;
+    will-change: transform;
 }
 
 .orb-1 {
@@ -143,12 +127,7 @@ body.cursor-hover #vector-cursor .cursor-vector-ring {
     background: radial-gradient(circle, var(--accent-cyan-glow), transparent 70%);
 }
 
-@keyframes liquidFloat {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(50px, 40px) scale(1.1); }
-}
-
-/* FIXED SMART SCROLL INDEX PANEL (Left Navigation Indicator) */
+/* LEFT SMART SCROLL TRACKER */
 .smart-scroll-tracker {
     position: fixed;
     left: 2.5rem;
@@ -166,14 +145,14 @@ body.cursor-hover #vector-cursor .cursor-vector-ring {
     gap: 12px;
     text-decoration: none;
     color: var(--text-dim);
-    transition: all 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .tracker-line {
     width: 16px;
     height: 2px;
     background: var(--text-dim);
-    transition: all 0.3s ease;
+    transition: width 0.4s var(--ease-out-expo), background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tracker-label {
@@ -182,7 +161,7 @@ body.cursor-hover #vector-cursor .cursor-vector-ring {
     letter-spacing: 1px;
     opacity: 0;
     transform: translateX(-10px);
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
     white-space: nowrap;
 }
 
@@ -194,12 +173,12 @@ body.cursor-hover #vector-cursor .cursor-vector-ring {
 }
 
 .tracker-node.active .tracker-line {
-    width: 32px;
+    width: 34px;
     background: var(--accent-cyan);
-    box-shadow: 0 0 10px var(--accent-cyan);
+    box-shadow: 0 0 12px var(--accent-cyan);
 }
 
-/* FIXED LIQUID GLASS NAVIGATION BAR */
+/* LIQUID GLASS NAVBAR */
 .navbar {
     position: fixed;
     top: 1.5rem;
@@ -271,12 +250,6 @@ section.smart-panel {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    transition: all 0.6s var(--ease-out-expo);
-}
-
-/* PANEL HIGHLIGHT STATE WHEN SCROLLED INTO VIEW */
-section.smart-panel.active-panel {
-    opacity: 1;
 }
 
 /* HERO SECTION - ACADEMIC FOCUS */
@@ -300,6 +273,7 @@ section.smart-panel.active-panel {
     color: var(--accent-cyan);
     margin-bottom: 1.5rem;
     letter-spacing: 1px;
+    opacity: 0; /* Animated via Anime.js */
 }
 
 .hero-title {
@@ -309,6 +283,7 @@ section.smart-panel.active-panel {
     line-height: 1.08;
     letter-spacing: -1.5px;
     margin-bottom: 1.2rem;
+    opacity: 0; /* Animated via Anime.js */
 }
 
 .hero-desc {
@@ -317,6 +292,7 @@ section.smart-panel.active-panel {
     font-weight: 400;
     line-height: 1.7;
     margin-bottom: 2.2rem;
+    opacity: 0; /* Animated via Anime.js */
 }
 
 .hero-actions {
@@ -324,9 +300,10 @@ section.smart-panel.active-panel {
     gap: 1.2rem;
     align-items: center;
     flex-wrap: wrap;
+    opacity: 0; /* Animated via Anime.js */
 }
 
-/* LIQUID GLASS BUTTON */
+/* LIQUID GLASS BUTTONS */
 .btn-liquid {
     padding: 14px 34px;
     background: linear-gradient(135deg, rgba(0, 243, 255, 0.85), rgba(157, 78, 255, 0.85));
@@ -340,14 +317,13 @@ section.smart-panel.active-panel {
     align-items: center;
     gap: 10px;
     backdrop-filter: blur(10px);
-    transition: all 0.4s var(--ease-out-expo);
     box-shadow: 0 8px 25px rgba(0, 243, 255, 0.25);
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+    will-change: transform;
 }
 
 .btn-liquid:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 12px 35px rgba(0, 243, 255, 0.4);
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+    box-shadow: 0 12px 35px rgba(0, 243, 255, 0.45);
 }
 
 .btn-liquid-secondary {
@@ -363,17 +339,16 @@ section.smart-panel.active-panel {
     align-items: center;
     gap: 10px;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    will-change: transform;
 }
 
 .btn-liquid-secondary:hover {
-    background: rgba(255, 255, 255, 0.08);
     border-color: var(--accent-cyan);
     color: var(--accent-cyan);
-    transform: translateY(-3px);
 }
 
-/* PROFILE PHOTO LIQUID CONTAINER */
+/* PROFILE PHOTO LIQUID FRAME */
 .profile-liquid-frame {
     position: relative;
     width: 290px;
@@ -383,12 +358,8 @@ section.smart-panel.active-panel {
     padding: 8px;
     background: linear-gradient(135deg, rgba(0, 243, 255, 0.5), rgba(157, 78, 255, 0.5));
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-purple-glow);
-    transition: all 0.5s var(--ease-out-expo);
-}
-
-.profile-liquid-frame:hover {
-    transform: scale(1.04);
-    box-shadow: 0 20px 50px rgba(0, 243, 255, 0.4);
+    opacity: 0; /* Animated via Anime.js */
+    will-change: transform;
 }
 
 .profile-liquid-img {
@@ -426,6 +397,7 @@ section.smart-panel.active-panel {
     letter-spacing: 2px;
     margin-bottom: 0.5rem;
     display: block;
+    opacity: 0;
 }
 
 .section-title {
@@ -434,6 +406,7 @@ section.smart-panel.active-panel {
     font-weight: 800;
     letter-spacing: -1px;
     margin-bottom: 1rem;
+    opacity: 0;
 }
 
 .section-desc {
@@ -441,6 +414,7 @@ section.smart-panel.active-panel {
     font-size: 1.05rem;
     margin-bottom: 3rem;
     max-width: 650px;
+    opacity: 0;
 }
 
 /* LIQUID GLASS CARDS & GRID */
@@ -458,35 +432,10 @@ section.smart-panel.active-panel {
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transition: all 0.4s var(--ease-out-expo);
     position: relative;
     overflow: hidden;
-}
-
-.smart-panel.active-panel .liquid-glass-card {
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.liquid-glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-    transition: left 0.6s ease;
-}
-
-.liquid-glass-card:hover::before {
-    left: 100%;
-}
-
-.liquid-glass-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--glass-border-glow);
-    background: var(--glass-bg-hover);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 30px var(--accent-cyan-glow);
+    opacity: 0; /* Animated via Anime.js */
+    will-change: transform, opacity;
 }
 
 .card-title {
@@ -563,6 +512,7 @@ section.smart-panel.active-panel {
     padding: 1.5rem;
     text-align: center;
     backdrop-filter: blur(10px);
+    opacity: 0; /* Animated via Anime.js */
 }
 
 .stat-val {
@@ -599,7 +549,9 @@ section.smart-panel.active-panel {
     text-decoration: none;
     font-weight: 600;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Animated via Anime.js */
+    will-change: transform;
 }
 
 .contact-pill:hover {
@@ -607,7 +559,6 @@ section.smart-panel.active-panel {
     color: var(--bg-dark);
     border-color: var(--accent-cyan);
     box-shadow: 0 0 25px var(--accent-cyan-glow);
-    transform: translateY(-3px);
 }
 
 footer {
@@ -622,7 +573,7 @@ footer {
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 900px) {
     .smart-scroll-tracker {
-        display: none; /* Hide left tracker on smaller screens */
+        display: none;
     }
 
     .hero-grid {

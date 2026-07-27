@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keerthik Roshan G | AI & Data Science Academic Portfolio</title>
-    <meta name="description" content="Academic & Engineering Portfolio of Keerthik Roshan G. - AI & Data Science Student, LLM Specialist, and Data Science Intern.">
+    <title>Keerthik Roshan G | AI & Data Science Candidate Portfolio</title>
+    <meta name="description" content="Academic & Data Science Portfolio of Keerthik Roshan G. - AI & Data Science Student, LLM Specialist, and Data Science Intern. Powered by Anime.js Motion Infrastructure.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- VECTOR SVG CUSTOM CURSOR RETICLE -->
+    <!-- VECTOR SVG RETICLE CURSOR -->
     <div id="vector-cursor">
         <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="3" class="cursor-center-dot" />
-            <circle cx="20" cy="20" r="16" class="cursor-vector-ring" stroke-dasharray="4 2" />
-            <path d="M20 0 V6 M20 34 V40 M0 20 H6 M34 20 H40" stroke="rgba(0,243,255,0.6)" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="3" class="cursor-dot" />
+            <circle cx="20" cy="20" r="16" class="cursor-ring" stroke-dasharray="4 2" />
+            <path d="M20 0 V6 M20 34 V40 M0 20 H6 M34 20 H40" class="cursor-crosshair"/>
         </svg>
     </div>
 
-    <!-- LIQUID AMBIENT BACKGROUND GLOW -->
+    <!-- LIQUID AMBIENT BACKGROUND ORBS -->
     <div class="bg-liquid-glow">
         <div class="liquid-orb orb-1"></div>
         <div class="liquid-orb orb-2"></div>
@@ -65,7 +72,7 @@
     </nav>
 
     <!-- PANEL 01: HERO / ACADEMIC OVERVIEW -->
-    <section id="hero" class="container smart-panel active-panel">
+    <section id="hero" class="container smart-panel">
         <div class="hero-grid">
             <div class="hero-content">
                 <div class="academic-badge">
@@ -277,6 +284,9 @@
         </div>
     </footer>
 
+    <!-- Anime.js CDN Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+    <!-- Motion Application Infrastructure -->
     <script src="js/app.js"></script>
 </body>
 </html>
