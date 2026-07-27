@@ -3,290 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keerthik Roshan G. | AI, Data Science & Legal Tech Portfolio</title>
-    <meta name="description" content="Hyper-Interface Portfolio of Keerthik Roshan G. - AI & Data Science Candidate, Data Science Intern, Legal Tech NLP Developer, and Sound Producer (@roznmusic).">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Custom Stylesheet -->
+    <title>Keerthik Roshan G | AI & Music Portfolio</title>
+    <meta name="description" content="Portfolio of Keerthik Roshan G. - AI & Data Science Student, Music Producer, and Data Scientist Intern. Inspired by Agenciy Framer Template.">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- VECTOR RETICLE CURSOR -->
-    <div id="cursor-reticle">
-        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="3" class="reticle-dot" />
-            <circle cx="20" cy="20" r="16" class="reticle-ring" stroke-dasharray="4 2" />
-            <path d="M20 0 V6 M20 34 V40 M0 20 H6 M34 20 H40" class="reticle-cross"/>
-        </svg>
-    </div>
+    <!-- Minimalist Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
 
-    <!-- AMBIENT FROSTED GLOW BACKDROP -->
-    <div class="bg-ambient-layer">
-        <div class="ambient-orb orb-primary"></div>
-        <div class="ambient-orb orb-secondary"></div>
-    </div>
-
-    <!-- LEFT SMART SCROLL INDEX TRACKER -->
-    <div class="left-index-tracker">
-        <a href="#overview" class="tracker-item active">
-            <span class="tracker-bar"></span>
-            <span class="tracker-text">01 // OVERVIEW</span>
-        </a>
-        <a href="#experience" class="tracker-item">
-            <span class="tracker-bar"></span>
-            <span class="tracker-text">02 // EXPERIENCE</span>
-        </a>
-        <a href="#projects" class="tracker-item">
-            <span class="tracker-bar"></span>
-            <span class="tracker-text">03 // WORKS</span>
-        </a>
-        <a href="#skills" class="tracker-item">
-            <span class="tracker-bar"></span>
-            <span class="tracker-text">04 // MATRIX</span>
-        </a>
-        <a href="#contact" class="tracker-item">
-            <span class="tracker-bar"></span>
-            <span class="tracker-text">05 // CONNECT</span>
-        </a>
-    </div>
-
-    <!-- FLOATING NAVBAR -->
+    <!-- FRAMER AGENCIY NAVBAR -->
     <nav class="navbar">
-        <a href="#overview" class="brand-wrapper">
-            <span class="brand-symbol">K</span>
+        <a href="#hero" class="brand">
             <span>KEERTHIK ROSHAN G.</span>
+            <span class="brand-tag">PORTFOLIO</span>
         </a>
 
         <ul class="nav-links">
-            <li><a href="#overview">Overview</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Works</a></li>
-            <li><a href="#skills">Matrix</a></li>
+            <li><a href="#skills">Tech & Art</a></li>
             <li><a href="#contact">Connect</a></li>
         </ul>
-
-        <div class="nav-status-time">
-            <span class="live-pulse"></span>
-            <span id="live-time-clock">11:45 PM IST</span>
-        </div>
     </nav>
 
-    <!-- SECTION 01: HERO / OVERVIEW -->
-    <section id="overview" class="container panel-section">
-        <div class="hero-layout">
-            <div class="hero-content">
-                <div class="hero-pill-badge">
-                    <span style="width:6px; height:6px; background:var(--accent-violet); border-radius:50%; box-shadow:0 0 6px var(--accent-violet);"></span>
-                    <span>AI & DATA SCIENCE CANDIDATE × LEGAL TECH × SONIC STUDIO</span>
+    <!-- HERO BENTO STAGE -->
+    <section id="hero" class="container hero-section">
+        <div class="hero-bento-grid">
+            <!-- Bento Main Card -->
+            <div class="bento-card-main reveal">
+                <div class="hero-pill-category">
+                    <span>AI & DATA SCIENCE × MUSIC PRODUCTION</span>
                 </div>
 
-                <h1 class="hero-main-title">
-                    KEERTHIK ROSHAN G<span class="italic-accent">.</span>
+                <h1 class="hero-title">
+                    KEERTHIK ROSHAN G<span class="italic-styled">.</span>
                 </h1>
 
-                <p class="hero-lead-text">
+                <p class="hero-sub">
                     AI & Data Science Student | Music Producer | Data Scientist Intern.<br>
-                    Exploring the intersection of <span class="italic-gradient">Generative AI</span>, Legal NLP, and <span class="italic-accent">Sound Design</span>.
+                    Exploring the edge of <span class="italic-styled">Generative AI</span> and <span class="italic-styled">Sound Design</span>.
                 </p>
 
-                <div class="hero-cta-group">
-                    <a href="#projects" class="btn-hyper">
-                        <span>EXPLORE SELECTED WORKS</span>
-                    </a>
-                    <a href="#contact" class="btn-hyper-outline">
-                        <span>LET'S CONNECT</span>
-                    </a>
-                </div>
+                <a href="#contact" class="hero-cta-btn">
+                    <span>Let's Connect</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
             </div>
 
-            <div class="hero-visual">
-                <div class="profile-avatar-wrapper">
-                    <img src="images/profile.jpg" alt="Keerthik Roshan G" class="profile-avatar-img">
+            <!-- Bento Avatar Card -->
+            <div class="bento-card-avatar reveal">
+                <div class="avatar-frame">
+                    <img src="images/profile.jpg" alt="Keerthik Roshan G" class="avatar-img">
                 </div>
-            </div>
-        </div>
-
-        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 3.5rem;">
-            <div class="hyper-glass-card" style="padding: 1.4rem; text-align: center;">
-                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent-cyan);">20 Yrs</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">AI & DS Student</div>
-            </div>
-            <div class="hyper-glass-card" style="padding: 1.4rem; text-align: center;">
-                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent-violet);">DigiDARA</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Data Science Intern</div>
-            </div>
-            <div class="hyper-glass-card" style="padding: 1.4rem; text-align: center;">
-                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent-cyan);">VidhiDesk</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Legal NLP Assistant</div>
-            </div>
-            <div class="hyper-glass-card" style="padding: 1.4rem; text-align: center;">
-                <div style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; color: var(--accent-violet);">@roznmusic</div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 4px;">Sonic Production</div>
+                <div class="avatar-name">Keerthik Roshan G.</div>
+                <div class="avatar-role">AI Researcher & Sound Producer</div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 02: EXPERIENCE -->
-    <section id="experience" class="container panel-section">
-        <span class="section-meta-tag">// 02. FIELD EXPERIENCE</span>
-        <h2 class="section-main-title">Industry Deployment <span class="italic-accent">& Data Science</span></h2>
-        <p class="section-subtitle-text">Hands-on experience in machine learning pipelines and exploratory data analysis.</p>
+    <!-- ABOUT SECTION -->
+    <section id="about" class="container reveal">
+        <div class="section-header">
+            <span class="section-tag">// BIOGRAPHY</span>
+            <h2>About <span class="italic-styled">Me</span></h2>
+        </div>
 
-        <div class="timeline-container">
-            <div class="timeline-node-dot"></div>
-            <div class="hyper-glass-card">
+        <div class="bento-card" style="max-width: 900px;">
+            <p style="font-size: 1.15rem; color: var(--text-main); line-height: 1.8; margin-bottom: 1.2rem;">
+                I am a 20-year-old AI & Data Science student driven by the urge to experiment with the development and management of <strong>LLMs and Agentic AI</strong>.
+            </p>
+            <p style="font-size: 1.05rem; color: var(--text-muted); line-height: 1.8;">
+                A dedicated tech enthusiast since school, I actively explore open-source ecosystems—dissecting new frameworks to deploy AI effectively. When I'm not training models, I'm analyzing legal frameworks or channeling creativity into <span class="italic-styled">Music Production & Direction</span>.
+            </p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="container reveal">
+        <div class="section-header">
+            <span class="section-tag">// CAREER</span>
+            <h2>Experience</h2>
+        </div>
+
+        <div class="bento-grid">
+            <div class="bento-card">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
                     <div>
-                        <h3 class="card-heading">Data Science Intern</h3>
-                        <p style="color: var(--accent-cyan); font-weight: 600; font-family: var(--font-sub);">DigiDARA Technologies, Trichy</p>
+                        <h3>Data Science Intern</h3>
+                        <p style="color: var(--accent-purple); font-weight: 600; margin-bottom: 0;">DigiDARA Technologies, Trichy</p>
                     </div>
-                    <span class="pillar-badge badge-ai">1 MONTH DURATION</span>
+                    <span class="card-badge badge-purple">1 Month</span>
                 </div>
 
-                <p class="card-paragraph">
-                    Conducted data science workflows and deployed efficiency-tested machine learning models:
-                </p>
-
-                <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+                <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.5rem;">
                     <li>Proficiency in Python, SQL, and Data Science libraries.</li>
                     <li>Conducted EDA on Loan Approval datasets.</li>
                     <li>Deployed predictive models for efficiency testing (Capstone).</li>
                 </ul>
 
-                <div class="tag-container">
-                    <span class="tag-chip">Python</span>
-                    <span class="tag-chip">SQL</span>
-                    <span class="tag-chip">Pandas / NumPy</span>
-                    <span class="tag-chip">EDA Datasets</span>
-                    <span class="tag-chip">Predictive Models</span>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>Pandas/NumPy</span>
+                    <span>EDA</span>
+                    <span>Predictive Models</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 03: SELECTED WORKS -->
-    <section id="projects" class="container panel-section">
-        <span class="section-meta-tag">// 03. ENGINEERING & RESEARCH</span>
-        <h2 class="section-main-title">Selected <span class="italic-accent">Works</span></h2>
-        <p class="section-subtitle-text">AI NLP assistants, constitutional research papers, and agentic workflows.</p>
+    <!-- SELECTED WORKS SECTION -->
+    <section id="projects" class="container reveal">
+        <div class="section-header">
+            <span class="section-tag">// PORTFOLIO</span>
+            <h2>Selected <span class="italic-styled">Works</span></h2>
+        </div>
 
-        <div class="matrix-grid">
-            <!-- Work 1: VidhiDesk -->
-            <div class="hyper-glass-card">
-                <span class="pillar-badge badge-legal">LEGAL TECH NLP</span>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem;">
-                    <h3 class="card-heading" style="margin-bottom:0;">VidhiDesk</h3>
-                    <span style="color: var(--accent-amber); font-family: var(--font-mono); font-size: 0.75rem; border: 1px solid var(--accent-amber); padding: 2px 8px; border-radius: 4px;">IN PROGRESS</span>
+        <div class="bento-grid">
+            <!-- Work 1 -->
+            <div class="bento-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                    <h3>VidhiDesk</h3>
+                    <span class="card-badge badge-yellow">IN PROGRESS</span>
                 </div>
-                <p class="card-paragraph">
+                <p>
                     Python-based legal research assistant for law students. Parses legal databases to streamline case finding and documentation.
                 </p>
-                <div class="tag-container">
-                    <span class="tag-chip">Python</span>
-                    <span class="tag-chip">NLP</span>
-                    <span class="tag-chip">Legal Tech</span>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>NLP</span>
+                    <span>Legal Tech</span>
                 </div>
             </div>
 
-            <!-- Work 2: Agentic AI -->
-            <div class="hyper-glass-card">
-                <span class="pillar-badge badge-ai">GENERATIVE AI</span>
-                <h3 class="card-heading">Agentic AI & LLMs</h3>
-                <p class="card-paragraph">
-                    Dissecting open-source LLM ecosystems and building agentic pipeline architectures to deploy artificial intelligence models effectively.
-                </p>
-                <div class="tag-container">
-                    <span class="tag-chip">LLMs</span>
-                    <span class="tag-chip">Agentic AI</span>
-                    <span class="tag-chip">Open Source</span>
+            <!-- Work 2 -->
+            <div class="bento-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                    <h3>Equality & Affirmative Action</h3>
+                    <span class="card-badge badge-cyan">RESEARCH</span>
                 </div>
-            </div>
-
-            <!-- Work 3: Constitutional Research -->
-            <div class="hyper-glass-card">
-                <span class="pillar-badge badge-legal">RESEARCH PAPER</span>
-                <h3 class="card-heading">Equality & Affirmative Action</h3>
-                <p class="card-paragraph">
+                <p>
                     Research paper on "Sub-categorization in Reservations and Social Justice Dilemmas." Analyzed for UNOM Dept of Legal Studies.
                 </p>
-                <div class="tag-container">
-                    <span class="tag-chip">Research</span>
-                    <span class="tag-chip">Constitutional Law</span>
+                <div class="tags">
+                    <span>Research</span>
+                    <span>Constitutional Law</span>
+                </div>
+            </div>
+
+            <!-- Work 3 -->
+            <div class="bento-card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem;">
+                    <h3>Agentic AI Systems</h3>
+                    <span class="card-badge badge-purple">OPEN SOURCE</span>
+                </div>
+                <p>
+                    Experimental multi-agent pipeline models exploring automated reasoning and tool execution for complex problem solving.
+                </p>
+                <div class="tags">
+                    <span>Agentic AI</span>
+                    <span>LLMs</span>
+                    <span>Python</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 04: TECH & ART MATRIX -->
-    <section id="skills" class="container panel-section">
-        <span class="section-meta-tag">// 04. CAPABILITIES</span>
-        <h2 class="section-main-title">Tech <span class="italic-accent">& Art Matrix</span></h2>
-        <p class="section-subtitle-text">Dual discipline proficiency spanning engineering code and creative sound.</p>
+    <!-- TECH & ART SECTION -->
+    <section id="skills" class="container reveal">
+        <div class="section-header">
+            <span class="section-tag">// SKILLS</span>
+            <h2>Tech & <span class="italic-styled">Art</span></h2>
+        </div>
 
-        <div class="matrix-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-            <div class="hyper-glass-card" style="border-left: 3px solid var(--accent-cyan);">
-                <span class="pillar-badge badge-ai">ENGINEERING CODE</span>
-                <h3 class="card-heading" style="margin-bottom: 1rem;">Data Science & AI</h3>
-                <div class="tag-container">
-                    <span class="tag-chip">Python</span>
-                    <span class="tag-chip">SQL</span>
-                    <span class="tag-chip">Pandas/NumPy</span>
-                    <span class="tag-chip">LLMs</span>
-                    <span class="tag-chip">JavaScript (Learning)</span>
+        <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="bento-card" style="border-left: 3px solid var(--accent-purple);">
+                <h3>Code</h3>
+                <div class="tags">
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>Pandas/NumPy</span>
+                    <span>LLMs</span>
+                    <span>JavaScript (Learning)</span>
                 </div>
             </div>
 
-            <div class="hyper-glass-card" style="border-left: 3px solid var(--accent-violet);">
-                <span class="pillar-badge badge-sonic">CREATIVE & SOUND</span>
-                <h3 class="card-heading" style="margin-bottom: 1rem;">Music & Production</h3>
-                <div class="tag-container">
-                    <span class="tag-chip">FL Studio</span>
-                    <span class="tag-chip">Music Production</span>
-                    <span class="tag-chip">Vocals</span>
-                    <span class="tag-chip">Typography</span>
+            <div class="bento-card" style="border-left: 3px solid var(--accent-cyan);">
+                <h3>Creative</h3>
+                <div class="tags">
+                    <span>FL Studio</span>
+                    <span>Music Production</span>
+                    <span>Vocals</span>
+                    <span>Typography</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 05: CONTACT -->
-    <section id="contact" class="container panel-section" style="text-align: center;">
-        <span class="section-meta-tag">// 05. INITIATE CONNECTION</span>
-        <h2 class="section-main-title">Let's <span class="italic-accent">Connect</span></h2>
-        <p class="section-subtitle-text" style="margin: 0 auto 2rem auto;">
-            Drop an email or check out my repos and social profiles.
-        </p>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="container reveal" style="text-align: center;">
+        <div class="section-header">
+            <span class="section-tag">// CONNECT</span>
+            <h2>Let's <span class="italic-styled">Connect</span></h2>
+            <p style="color: var(--text-muted); max-width: 500px; margin: 1rem auto 0 auto;">Drop an email or check out my repos.</p>
+        </div>
 
-        <div class="contact-pills-row">
-            <a href="mailto:gkrosh.0712@gmail.com" class="contact-pill-item">
-                <span>gkrosh.0712@gmail.com</span>
-            </a>
-            <a href="https://linkedin.com/in/keerthikroshan" target="_blank" rel="noopener" class="contact-pill-item">
-                <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/KeerthikRoshan7" target="_blank" rel="noopener" class="contact-pill-item">
-                <span>GitHub</span>
-            </a>
-            <a href="https://instagram.com/roznmusic" target="_blank" rel="noopener" class="contact-pill-item">
-                <span>Instagram (@roznmusic)</span>
-            </a>
+        <div class="contact-links">
+            <a href="mailto:gkrosh.0712@gmail.com" class="contact-pill">Email</a>
+            <a href="https://linkedin.com/in/keerthikroshan" target="_blank" rel="noopener" class="contact-pill">LinkedIn</a>
+            <a href="https://github.com/KeerthikRoshan7" target="_blank" rel="noopener" class="contact-pill">GitHub</a>
+            <a href="https://instagram.com/roznmusic" target="_blank" rel="noopener" class="contact-pill">Instagram</a>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>© 2026 Keerthik Roshan G. | Powered by Hyper-Interface & Anime.js Engine.</p>
-        </div>
+        <p>© 2026 Keerthik Roshan G. | Designed in Framer Agenciy Template Style.</p>
     </footer>
 
-    <!-- Anime.js CDN Engine -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
-    <!-- Application Logic -->
     <script src="js/app.js"></script>
 </body>
 </html>
