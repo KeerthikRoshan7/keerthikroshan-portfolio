@@ -3,1264 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keerthik Roshan G — AI Researcher & Engineer</title>
+    <title>Keerthik Roshan G. | AI Engineer & Sound Producer</title>
+    <meta name="description" content="Personal portfolio of Keerthik Roshan G. - AI & Data Science student, LLM & Agentic AI Specialist, Legal Tech Researcher, and Music Producer (@roznmusic).">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #0a0a0f;
-            --bg-elevated: #111118;
-            --bg-card: #16161f;
-            --border: #1e1e2e;
-            --border-hover: #2a2a3e;
-            --text-primary: #e8e8f0;
-            --text-secondary: #8b8ba0;
-            --text-muted: #5a5a70;
-            --accent: #6366f1;
-            --accent-glow: rgba(99, 102, 241, 0.15);
-            --accent-soft: #818cf8;
-            --success: #22c55e;
-            --warning: #f59e0b;
-            --gradient-start: #6366f1;
-            --gradient-end: #a855f7;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: var(--bg); }
-        ::-webkit-scrollbar-thumb { background: var(--border-hover); border-radius: 3px; }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(10, 10, 15, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 0 24px;
-        }
-
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 64px;
-        }
-
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            transition: color 0.2s;
-            position: relative;
-        }
-
-        .nav-links a:hover { color: var(--text-primary); }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 0; height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            padding: 8px 20px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--accent-glow); }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 100px 24px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: 
-                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
-                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
-        }
-
-        .hero-grid {
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-        }
-
-        .hero-badge .dot {
-            width: 8px; height: 8px;
-            background: var(--success);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 12px 28px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            border: none;
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
-
-        .btn-secondary {
-            background: var(--bg-card);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-        }
-        .btn-secondary:hover { border-color: var(--border-hover); background: var(--bg-elevated); }
-
-        /* Stats */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 48px;
-            margin-top: 48px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Section Base */
-        section {
-            padding: 80px 24px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 48px;
-        }
-
-        .section-tag {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 8px;
-        }
-
-        .section-title {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .section-desc {
-            color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.7;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        .about-text {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .about-text strong { color: var(--text-primary); }
-
-        .about-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 24px;
-        }
-
-        .about-card-title {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .about-card-title svg { width: 18px; height: 18px; color: var(--accent); }
-
-        .timeline-item {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 16px;
-        }
-        .timeline-item:last-child { margin-bottom: 0; }
-
-        .timeline-dot {
-            width: 10px; height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-top: 6px;
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .timeline-dot::after {
-            content: '';
-            position: absolute;
-            top: 14px; left: 4px;
-            width: 2px; height: calc(100% + 16px);
-            background: var(--border);
-        }
-        .timeline-item:last-child .timeline-dot::after { display: none; }
-
-        .timeline-content h4 {
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-bottom: 2px;
-        }
-        .timeline-content p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .skill-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-        .skill-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-
-        .skill-card-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .skill-icon {
-            width: 36px; height: 36px;
-            background: var(--accent-glow);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .skill-card-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .skill-tag {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: border-color 0.2s, transform 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-        .project-card:hover { border-color: var(--border-hover); transform: translateY(-3px); }
-        .project-card.featured { border-color: rgba(99, 102, 241, 0.3); }
-
-        .project-header {
-            padding: 24px 24px 0;
-        }
-
-        .project-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 12px;
-        }
-
-        .badge-research {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--accent-soft);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        .badge-production {
-            background: rgba(34, 197, 94, 0.1);
-            color: var(--success);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-        }
-
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .project-desc {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .project-metrics {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .metric {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-        }
-
-        .metric-value {
-            font-weight: 700;
-            color: var(--text-primary);
-        }
-        .metric-label { color: var(--text-muted); }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 16px;
-        }
-
-        .tech-tag {
-            background: var(--bg-elevated);
-            border: 1px solid var(--border);
-            padding: 3px 10px;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .project-footer {
-            padding: 0 24px 24px;
-            margin-top: auto;
-            display: flex;
-            gap: 10px;
-        }
-
-        .project-link {
-            flex: 1;
-            text-align: center;
-            padding: 8px 0;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        .link-primary {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-        }
-        .link-primary:hover { opacity: 0.9; }
-
-        .link-secondary {
-            background: var(--bg-elevated);
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-        }
-        .link-secondary:hover { color: var(--text-primary); border-color: var(--border-hover); }
-
-        /* Experience */
-        .exp-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .exp-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px;
-            transition: border-color 0.2s;
-        }
-        .exp-card:hover { border-color: var(--border-hover); }
-        .exp-card.current { border-color: rgba(99, 102, 241, 0.25); }
-
-        .exp-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .exp-role {
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-
-        .exp-org {
-            color: var(--accent-soft);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .exp-meta {
-            text-align: right;
-        }
-
-        .exp-date {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .exp-location {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .exp-current {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            background: rgba(34, 197, 94, 0.1);
-            color: var(--success);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-top: 4px;
-        }
-
-        .exp-details {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .exp-details ul {
-            padding-left: 18px;
-            margin: 0;
-        }
-
-        .exp-details li { margin-bottom: 6px; }
-        .exp-details li::marker { color: var(--accent); }
-
-        /* Publications */
-        .pub-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px;
-            display: flex;
-            gap: 20px;
-            align-items: flex-start;
-        }
-
-        .pub-icon {
-            width: 48px; height: 48px;
-            background: var(--accent-glow);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .pub-content h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 6px;
-            line-height: 1.4;
-        }
-
-        .pub-meta {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-bottom: 8px;
-        }
-
-        .pub-venue {
-            color: var(--accent-soft);
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        .pub-status {
-            background: rgba(245, 158, 11, 0.1);
-            color: var(--warning);
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .pub-abstract {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            line-height: 1.7;
-        }
-
-        /* Achievements */
-        .achieve-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-        }
-
-        .achieve-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            gap: 14px;
-            align-items: flex-start;
-            transition: border-color 0.2s;
-        }
-        .achieve-card:hover { border-color: var(--border-hover); }
-
-        .achieve-icon {
-            width: 40px; height: 40px;
-            background: var(--accent-glow);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .achieve-content h4 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-        .achieve-content p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .achieve-rank {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            margin-top: 6px;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 40px 24px;
-            text-align: center;
-        }
-
-        .footer-text {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 16px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-bottom: 20px;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: var(--accent-soft); }
-
-        .footer-copy {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .about-grid { grid-template-columns: 1fr; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .stats { gap: 24px; }
-            .exp-header { flex-direction: column; }
-            .exp-meta { text-align: left; }
-            .pub-card { flex-direction: column; }
-        }
-    </style>
-
-<base target="_blank">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-inner">
-            <div class="nav-logo">KR.</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-            </ul>
-            <a href="mailto:gkrosh.0712@gmail.com" class="nav-cta" target="_blank">Hire Me</a>
+
+    <!-- Cybersigil Interactive Canvas Overlay -->
+    <canvas id="sigil-canvas"></canvas>
+
+    <!-- Ambient Grid & Glow Background Orbs -->
+    <div class="bg-grid-overlay"></div>
+    <div class="bg-ambient-orb orb-1"></div>
+    <div class="bg-ambient-orb orb-2"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="scroll-progress-bar"></div>
+
+    <!-- Fixed Glass Navigation -->
+    <nav class="navbar">
+        <a href="#hero" class="brand-logo">
+            <span class="brand-sigil">K</span>
+            <span>KEERTHIK ROSHAN</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Works</a></li>
+            <li><a href="#sound-lab">Sound Lab</a></li>
+            <li><a href="#skills">Matrix</a></li>
+            <li><a href="#contact">Connect</a></li>
+        </ul>
+
+        <div class="nav-controls">
+            <button id="toggle-terminal" class="cyber-btn-icon" title="Toggle Interactive CLI Terminal (~)">
+                &gt;_
+            </button>
+            <button id="toggle-sigil" class="cyber-btn-icon" onclick="if(window.cybersigil) window.cybersigil.toggleMode();" title="Toggle Cybersigil Cursor Effect">
+                ⚡
+            </button>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <div class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-grid"></div>
+    <!-- HERO SECTION -->
+    <section id="hero" class="container smart-panel hero-section">
         <div class="hero-content">
             <div class="hero-badge">
-                <span class="dot"></span>
-                Research Intern @ NIT Trichy
+                <span class="pulse-dot"></span>
+                <span>AGENTIC AI × SOUND DESIGN ARCHITECTURE</span>
             </div>
-            <h1>
-                Keerthik <span class="gradient">Roshan </span>G 
-            </h1>
+            
+            <h1 class="hero-title">KEERTHIK ROSHAN G.</h1>
+            
             <p class="hero-subtitle">
-                AI & Data Science researcher bridging <strong>computer vision</strong> with high-level production systems. 
-                Currently co-developing multimodal AI for diabetic retinopathy screening at <strong>NIT Trichy</strong> — 
-                achieving 96.5% diagnostic accuracy with retrieval-grounded, hallucination-free clinical reasoning.
+                AI & Data Science Student | Music Producer | Legal Tech Developer.<br>
+                Exploring the boundary where <highlight>Generative LLMs</highlight>, Legal NLP, and <highlight>Sonic Frequency</highlight> intersect.
             </p>
+
             <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">View Research</a>
-                <a href="mailto:gkrosh.0712@gmail.com" class="btn btn-secondary" target="_blank">Get in Touch</a>
+                <a href="#projects" class="btn-cyber">
+                    <span>EXPLORE WORKS</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <button onclick="document.getElementById('toggle-terminal').click()" class="btn-outline-cyber">
+                    <span>LAUNCH TERMINAL</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-cyan);">[~]</span>
+                </button>
             </div>
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-value">96.5%</div>
-                    <div class="stat-label">DR Accuracy</div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="sigil-frame-wrapper">
+                <div class="sigil-ring-outer"></div>
+                <div class="sigil-ring-inner"></div>
+                <div class="profile-avatar-container">
+                    <img src="images/profile.jpg" alt="Keerthik Roshan G" class="profile-avatar-img">
                 </div>
-                <div class="stat">
-                    <div class="stat-value">0.9965</div>
-                    <div class="stat-label">AUROC Score</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="container smart-panel">
+        <span class="section-tag">// IDENTITY MATRIX</span>
+        <h2 class="section-title">Beyond the Algorithm</h2>
+        <p class="section-desc">Fusing data science rigor with creative sound architecture.</p>
+
+        <div class="about-grid">
+            <div class="about-text-panel">
+                <h3 style="font-family: var(--font-sub); font-size: 1.5rem; color: var(--text-main); margin-bottom: 1rem;">
+                    Engineering Intelligence & Sound
+                </h3>
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+                    I am a 20-year-old AI & Data Science specialist passionate about designing and deploying <strong>Agentic AI workflows</strong> and <strong>Legal NLP systems</strong>. 
+                </p>
+                <br>
+                <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8;">
+                    My technical focus lies in dissecting open-source LLM frameworks, fine-tuning retrieval pipelines, and analyzing constitutional legal frameworks. Outside of code, I direct sound, vocals, and electronic music production under the persona <strong>@roznmusic</strong>.
+                </p>
+            </div>
+
+            <div class="stat-counter-grid">
+                <div class="stat-item">
+                    <div class="stat-number">AI / DS</div>
+                    <div class="stat-label">Core Specialization</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-value">8.3</div>
-                    <div class="stat-label">CGPA</div>
+                <div class="stat-item">
+                    <div class="stat-number">VidhiDesk</div>
+                    <div class="stat-label">Legal Tech NLP Assistant</div>
                 </div>
-                <div class="stat">
-                    <div class="stat-value">4+</div>
-                    <div class="stat-label">Research Projects</div>
+                <div class="stat-item">
+                    <div class="stat-number">FL Studio</div>
+                    <div class="stat-label">Primary Sound Engine</div>
                 </div>
+                <div class="stat-item">
+                    <div class="stat-number">UNOM</div>
+                    <div class="stat-label">Legal Research Author</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="container smart-panel">
+        <span class="section-tag">// FIELD EXPERIENCE</span>
+        <h2 class="section-title">Industry Deployment</h2>
+        <p class="section-desc">Hands-on applications of data modeling and statistical intelligence.</p>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-node"></div>
+                <div class="cyber-card">
+                    <div class="card-header">
+                        <div>
+                            <h3 class="card-title">Data Science Intern</h3>
+                            <p style="color: var(--accent-cyan); font-weight: 600; font-size: 0.9rem;">DigiDARA Technologies, Trichy</p>
+                        </div>
+                        <span class="card-status-badge status-completed">Completed</span>
+                    </div>
+                    <div class="card-body">
+                        <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.7;">
+                            <li>Engineered automated Exploratory Data Analysis (EDA) pipelines for loan approval datasets.</li>
+                            <li>Built and deployed predictive machine learning models for risk efficiency benchmarking.</li>
+                            <li>Delivered end-to-end Python & SQL analytical pipelines for client deployment.</li>
+                        </ul>
+                    </div>
+                    <div class="tag-cloud">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Scikit-Learn</span>
+                        <span class="tech-tag">Predictive Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SELECTED WORKS SECTION -->
+    <section id="projects" class="container smart-panel">
+        <span class="section-tag">// SELECTED WORKS</span>
+        <h2 class="section-title">Engineering & Research</h2>
+        <p class="section-desc">Intelligent systems, legal research, and legal tech architectures.</p>
+
+        <div class="card-grid">
+            <!-- Project 1 -->
+            <div class="cyber-card">
+                <div class="card-header">
+                    <h3 class="card-title">VidhiDesk</h3>
+                    <span class="card-status-badge status-progress">IN PROGRESS</span>
+                </div>
+                <p class="card-body">
+                    Python-based legal research assistant tailored for law students and practitioners. Parses statutes and legal databases to streamline case finding and document synthesis using NLP.
+                </p>
+                <div class="tag-cloud">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">NLP</span>
+                    <span class="tech-tag">Legal Tech</span>
+                    <span class="tech-tag">LLM Retrieval</span>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="cyber-card">
+                <div class="card-header">
+                    <h3 class="card-title">Equality & Affirmative Action</h3>
+                    <span class="card-status-badge status-completed">RESEARCH PAPER</span>
+                </div>
+                <p class="card-body">
+                    In-depth constitutional law paper titled <em>"Sub-categorization in Reservations and Social Justice Dilemmas."</em> Presented and analyzed for UNOM Department of Legal Studies.
+                </p>
+                <div class="tag-cloud">
+                    <span class="tech-tag">Constitutional Law</span>
+                    <span class="tech-tag">Legal Research</span>
+                    <span class="tech-tag">Social Justice Analysis</span>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="cyber-card">
+                <div class="card-header">
+                    <h3 class="card-title">Agentic AI Workflows</h3>
+                    <span class="card-status-badge status-completed">OPEN SOURCE</span>
+                </div>
+                <p class="card-body">
+                    Experimental multi-agent orchestration models exploring automated reasoning, memory persistence, and tool-use pipelines for complex problem solving.
+                </p>
+                <div class="tag-cloud">
+                    <span class="tech-tag">Agentic AI</span>
+                    <span class="tech-tag">LangChain</span>
+                    <span class="tech-tag">LLMs</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOUND LAB & AUDIO SYNTH SECTION -->
+    <section id="sound-lab" class="container smart-panel">
+        <span class="section-tag">// SONIC SYNTHESIS</span>
+        <h2 class="section-title">Rozn Music Sound Lab</h2>
+        <p class="section-desc">Interactive Web Audio API Synthesizer (@roznmusic). Click pads or press keys [1-4].</p>
+
+        <div class="synth-container">
+            <div class="synth-header">
+                <div>
+                    <h3 style="font-family: var(--font-sub); font-size: 1.3rem; color: var(--text-main);">Frequency Visualizer</h3>
+                    <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-cyan);">LIVE SPECTRUM ANALYZER</p>
+                </div>
+                <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-violet);">
+                    DAW: FL STUDIO 21
+                </div>
+            </div>
+
+            <canvas id="spectrum-canvas"></canvas>
+
+            <div class="synth-pads-grid">
+                <div class="synth-pad">
+                    <span>PAD 01</span>
+                    <span style="font-size: 0.65rem; color: var(--text-muted);">808 SUB [KEY 1]</span>
+                </div>
+                <div class="synth-pad">
+                    <span>PAD 02</span>
+                    <span style="font-size: 0.65rem; color: var(--text-muted);">CYBER CHIME [KEY 2]</span>
+                </div>
+                <div class="synth-pad">
+                    <span>PAD 03</span>
+                    <span style="font-size: 0.65rem; color: var(--text-muted);">GLITCH ARP [KEY 3]</span>
+                </div>
+                <div class="synth-pad">
+                    <span>PAD 04</span>
+                    <span style="font-size: 0.65rem; color: var(--text-muted);">VOCAL DRONE [KEY 4]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH & ART MATRIX SECTION -->
+    <section id="skills" class="container smart-panel">
+        <span class="section-tag">// CAPABILITIES</span>
+        <h2 class="section-title">Tech & Art Matrix</h2>
+        <p class="section-desc">Dual discipline tools across code and audio.</p>
+
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="cyber-card" style="border-left: 3px solid var(--accent-cyan);">
+                <h3 class="card-title" style="margin-bottom: 1.2rem;">Data Science & Code</h3>
+                <div class="tag-cloud">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">SQL</span>
+                    <span class="tech-tag">Pandas & NumPy</span>
+                    <span class="tech-tag">LLM Agents</span>
+                    <span class="tech-tag">NLP Pipelines</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+            </div>
+
+            <div class="cyber-card" style="border-left: 3px solid var(--accent-violet);">
+                <h3 class="card-title" style="margin-bottom: 1.2rem;">Audio & Creative</h3>
+                <div class="tag-cloud">
+                    <span class="tech-tag">FL Studio</span>
+                    <span class="tech-tag">Music Production</span>
+                    <span class="tech-tag">Vocal Performance</span>
+                    <span class="tech-tag">Sound Synthesis</span>
+                    <span class="tech-tag">Mixing & Mastering</span>
+                    <span class="tech-tag">UI/UX Layouts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="container smart-panel">
+        <div class="contact-card-box">
+            <span class="section-tag">// INITIATE CONNECTION</span>
+            <h2 class="section-title" style="margin-bottom: 1rem;">Let's Collaborate</h2>
+            <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem auto;">
+                Interested in Agentic AI systems, Legal NLP research, or Sound Production? Drop an email or connect on socials.
+            </p>
+
+            <div class="contact-links-grid">
+                <button onclick="window.copyEmail()" class="contact-chip">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>gkrosh.0712@gmail.com</span>
+                </button>
+                <a href="https://linkedin.com/in/keerthikroshan" target="_blank" class="contact-chip">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/KeerthikRoshan7" target="_blank" class="contact-chip">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://instagram.com/roznmusic" target="_blank" class="contact-chip">
+                    <span>Instagram (@roznmusic)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2026 KEERTHIK ROSHAN G. | All Rights Reserved. Engineered with Cybersigil Canvas & Web Audio API.</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE TERMINAL CLI MODAL -->
+    <div id="terminal-modal" class="terminal-modal">
+        <div class="terminal-header">
+            <div class="terminal-dots">
+                <span id="close-terminal" class="dot dot-red" title="Close Terminal"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+            </div>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">keerthik-cli -- v2.6.0</span>
+        </div>
+        <div id="terminal-output" class="terminal-body">
+            <div style="color: #00f3ff; margin-bottom: 10px;">
+                CYBER-CLI SYSTEM LOADED. Type <span style="color:#ffffff; font-weight:bold;">help</span> to list commands.
+            </div>
+        </div>
+        <div style="padding: 10px 16px; background: rgba(10, 11, 18, 0.95); border-top: 1px solid rgba(255,255,255,0.05);">
+            <div class="terminal-input-line">
+                <span style="color: var(--accent-violet); font-family: var(--font-mono);">user@keerthik:~$</span>
+                <input id="terminal-input" type="text" class="terminal-input" placeholder="type a command..." autocomplete="off" spellcheck="false">
             </div>
         </div>
     </div>
 
-    <!-- About -->
-    <section id="about">
-        <div class="section-header">
-            <div class="section-tag">// about</div>
-            <h2 class="section-title">Researcher, Engineer, Builder</h2>
-            <p class="section-desc">From medical AI pipelines to strict-citation legal systems — I ship research that works in the real world.</p>
-        </div>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>
-                    I'm a <strong>B.Tech AI & Data Science</strong> student at M.I.E.T Engineering College, Tiruchirappalli, 
-                    currently a <strong>Research Intern at NIT Trichy</strong> in the Computer Vision lab.
-                </p>
-                <p style="margin-top: 12px;">
-                    My research focuses on <strong>multimodal medical AI</strong> — combining vision-language models, 
-                    retrieval-augmented generation, and autonomous agentic reasoning to build clinically trustworthy 
-                    diagnostic systems. I believe AI in healthcare must be <strong>explainable, evidence-grounded, 
-                    and hallucination-free</strong>.
-                </p>
-                <p style="margin-top: 12px;">
-                    Beyond research, I build production-grade GenAI tools — from strict-citation legal research engines 
-                    to end-to-end ML pipelines. Comfortable across the full stack: PyTorch experiments to Streamlit deployments.
-                </p>
-                <p style="margin-top: 12px;">
-                    <strong>Currently seeking:</strong> Research internships, MLE roles, and healthcare AI opportunities 
-                    where I can push the boundary of reliable, interpretable AI systems.
-                </p>
-            </div>
-            <div class="about-card">
-                <div class="about-card-title">
-                    <span>📍</span> Journey
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Research Intern — NIT Trichy</h4>
-                        <p>Computer Vision & AI · June 2026 – Present</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>Data Science Intern — DigiDARA</h4>
-                        <p>EDA & Creditworthiness Modeling · Jul 2025 – Aug 2025</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h4>B.Tech AI & Data Science — M.I.E.T</h4>
-                        <p>CGPA 8.3 · Sep 2023 – Present</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="cyber-toast" class="cyber-toast">Notification</div>
 
-    <!-- Skills -->
-    <section id="skills">
-        <div class="section-header">
-            <div class="section-tag">// skills</div>
-            <h2 class="section-title">Technical Arsenal</h2>
-            <p class="section-desc">Tools and frameworks I use to turn research ideas into working systems.</p>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-card-header">
-                    <div class="skill-icon">🧠</div>
-                    <div class="skill-card-title">AI / ML / Research</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Computer Vision</span>
-                    <span class="skill-tag">Medical Image Analysis</span>
-                    <span class="skill-tag">Vision-Language Models</span>
-                    <span class="skill-tag">RAG</span>
-                    <span class="skill-tag">Multi-Agent Systems</span>
-                    <span class="skill-tag">Deep Learning</span>
-                    <span class="skill-tag">NLP</span>
-                    <span class="skill-tag">Prompt Engineering</span>
-                    <span class="skill-tag">Explainable AI</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-header">
-                    <div class="skill-icon">💻</div>
-                    <div class="skill-card-title">Languages & Frameworks</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C/C++</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">PyTorch</span>
-                    <span class="skill-tag">Scikit-Learn</span>
-                    <span class="skill-tag">NumPy</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">Matplotlib</span>
-                    <span class="skill-tag">OpenCV</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-header">
-                    <div class="skill-icon">🛠️</div>
-                    <div class="skill-card-title">Tools & Infrastructure</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">Streamlit</span>
-                    <span class="skill-tag">FAISS</span>
-                    <span class="skill-tag">Google Gemini SDK</span>
-                    <span class="skill-tag">PyPDF2</span>
-                    <span class="skill-tag">python-docx</span>
-                    <span class="skill-tag">Git & GitHub</span>
-                    <span class="skill-tag">Supabase</span>
-                    <span class="skill-tag">Netlify</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-card-header">
-                    <div class="skill-icon">📊</div>
-                    <div class="skill-card-title">Data & Analytics</div>
-                </div>
-                <div class="skill-tags">
-                    <span class="skill-tag">EDA</span>
-                    <span class="skill-tag">Feature Engineering</span>
-                    <span class="skill-tag">Data Visualization</span>
-                    <span class="skill-tag">Statistical Analysis</span>
-                    <span class="skill-tag">Research Writing</span>
-                    <span class="skill-tag">LaTeX / IEEE Formatting</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects">
-        <div class="section-header">
-            <div class="section-tag">// projects</div>
-            <h2 class="section-title">Featured Work</h2>
-            <p class="section-desc">Research projects and production systems I've built — from medical AI to legal tech.</p>
-        </div>
-        <div class="projects-grid">
-            <!-- DR-MARVEL -->
-            <div class="project-card featured">
-                <div class="project-header">
-                    <div class="project-badge badge-research">🔬 Research Project (co-developed)</div>
-                    <h3 class="project-title">DR-MARVEL — Multi-Agent RAG-Augmented Medical Vision AI</h3>
-                    <p class="project-desc">
-                        A 6-module framework for diabetic retinopathy screening combining vision-language models, 
-                        retrieval-augmented generation, and 5 autonomous clinical reasoning agents. Mimics ophthalmologist 
-                        decision workflows with strict hallucination mitigation through evidence-grounded reasoning.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">96.5%</span>
-                            <span class="metric-label">Accuracy</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">0.9965</span>
-                            <span class="metric-label">AUROC</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">200+</span>
-                            <span class="metric-label">Images</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">4</span>
-                            <span class="metric-label">Datasets</span>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">DenseNet</span>
-                        <span class="tech-tag">ViT</span>
-                        <span class="tech-tag">FAISS</span>
-                        <span class="tech-tag">RAG</span>
-                        <span class="tech-tag">Multi-Agent AI</span>
-                        <span class="tech-tag">Streamlit</span>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <a href="#" class="project-link link-primary">View Paper</a>
-                    <a href="https://github.com/KeerthikRoshan7/DR-MARVEL" class="project-link link-secondary" target="_blank">GitHub →</a>
-                </div>
-            </div>
-
-            <!-- AEQUILEX -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-badge badge-production">🚀 Production</div>
-                    <h3 class="project-title">AEQUILEX — AI-Powered Legal Research Assistant</h3>
-                    <p class="project-desc">
-                        Strict-citation AI research engine constrained to verified IPC & BNS/BNSS statutes. 
-                        Eliminates hallucinated legal references through NLP-based semantic retrieval across multilingual documents.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Streamlit</span>
-                        <span class="tech-tag">PyPDF2</span>
-                        <span class="tech-tag">python-docx</span>
-                        <span class="tech-tag">Gemini SDK</span>
-                        <span class="tech-tag">NLP</span>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <a href="https://aequilex-ai.streamlit.app/" class="project-link link-primary" target="_blank">Live Demo</a>
-                    <a href="https://github.com/KeerthikRoshan7/Aequilex-Py" class="project-link link-secondary" target="_blank">GitHub →</a>
-                </div>
-            </div>
-
-            <!-- PneumoNet -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-badge badge-research">🔬 Research</div>
-                    <h3 class="project-title">PneumoNet — Attention-Based DenseNet for Pneumonia</h3>
-                    <p class="project-desc">
-                        Hybrid deep learning model with channel and spatial attention mechanisms in a DenseNet backbone. 
-                        Focuses on lung tissue while filtering anatomical noise. Validated with Grad-CAM for clinical interpretability.
-                    </p>
-                    <div class="project-metrics">
-                        <div class="metric">
-                            <span class="metric-value">94.2%</span>
-                            <span class="metric-label">Accuracy</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-value">112K</span>
-                            <span class="metric-label">Images</span>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">DenseNet</span>
-                        <span class="tech-tag">Attention</span>
-                        <span class="tech-tag">Grad-CAM</span>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <a href="#" class="project-link link-secondary">GitHub →</a>
-                </div>
-            </div>
-
-            <!-- Loan Model -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-badge badge-production">🚀 Production</div>
-                    <h3 class="project-title">Loan Creditworthiness Model</h3>
-                    <p class="project-desc">
-                        End-to-end binary classification pipeline on real loan approval data. Comprehensive EDA, 
-                        feature engineering, and evaluation using precision, recall, F1, and ROC-AUC metrics.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Scikit-Learn</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Matplotlib</span>
-                        <span class="tech-tag">EDA</span>
-                    </div>
-                </div>
-                <div class="project-footer">
-                    <a href="#" class="project-link link-secondary">GitHub →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
-        <div class="section-header">
-            <div class="section-tag">// experience</div>
-            <h2 class="section-title">Experience</h2>
-            <p class="section-desc">Research labs and industry roles that shaped my approach to building AI systems.</p>
-        </div>
-        <div class="exp-list">
-            <div class="exp-card current">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Research Intern — Computer Vision & AI</div>
-                        <div class="exp-org">National Institute of Technology (NIT), Tiruchirappalli</div>
-                    </div>
-                    <div class="exp-meta">
-                        <div class="exp-date">May 2026 – Present</div>
-                        <div class="exp-location">Trichy, TN</div>
-                        <div class="exp-current"><span class="dot" style="width:6px;height:6px;background:var(--success);border-radius:50%;display:inline-block;margin-right:4px;"></span>Active</div>
-                    </div>
-                </div>
-                <div class="exp-details">
-                    <ul>
-                        <li><strong>Co-developed DR-MARVEL</strong>, a Multi-Agent RAG-augmented framework for diabetic retinopathy screening under faculty mentorship</li>
-                        <li>Engineered a <strong>6-module pipeline</strong> integrating lesion-aware DenseNet/ViT, multimodal fusion, FAISS-based retrieval from AAO/ICO guidelines, and autonomous agentic reasoning</li>
-                        <li>Achieved <strong>96.5% accuracy, 0.9965 AUROC, and 0.9748 QWK</strong> on 200+ retinal fundus images across EyePACS, APTOS, IDRiD, and Messidor datasets</li>
-                        <li>Implemented strict hallucination mitigation through retrieval-grounded medical reasoning, producing transparent diagnostic reports with lesion attention maps</li>
-                        <li>Co-authored and submitted research paper to <strong>IEEE conference proceedings</strong> (under review)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="exp-card">
-                <div class="exp-header">
-                    <div>
-                        <div class="exp-role">Data Science Intern</div>
-                        <div class="exp-org">DigiDARA Technologies</div>
-                    </div>
-                    <div class="exp-meta">
-                        <div class="exp-date">Jul 2025 – Aug 2025</div>
-                        <div class="exp-location">Trichy, India · Hybrid</div>
-                    </div>
-                </div>
-                <div class="exp-details">
-                    <ul>
-                        <li>Performed end-to-end EDA on a real-world loan approval dataset, identifying key predictive features for creditworthiness modeling</li>
-                        <li>Applied data cleaning, feature engineering, and encoding techniques to build a binary classification pipeline</li>
-                        <li>Evaluated model performance using precision, recall, F1-score, and ROC-AUC; delivered actionable insights for lender decision-making</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications -->
-    <section id="publications">
-        <div class="section-header">
-            <div class="section-tag">// publications</div>
-            <h2 class="section-title">Publications</h2>
-            <p class="section-desc">Research contributions to the field of medical AI and multimodal systems.</p>
-        </div>
-        <div class="pub-card">
-            <div class="pub-icon">📄</div>
-            <div class="pub-content">
-                <h3>DR-MARVEL: Multi-Agent RAG-augmented Vision-grounded Explanatory Lesion Analysis for Diabetic Retinopathy</h3>
-                <div class="pub-meta">
-                    <span class="pub-venue">IEEE Conference Proceedings</span>
-                    <span class="pub-status">Under Review</span>
-                </div>
-                <p class="pub-abstract">
-                    A novel framework integrating vision-language models, retrieval-augmented generation, and autonomous 
-                    clinical reasoning agents for interpretable diabetic retinopathy screening. Addresses hallucination 
-                    in generative medical AI through evidence-grounded retrieval from ophthalmology guidelines and 
-                    peer-reviewed literature.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements -->
-    <section id="achievements">
-        <div class="section-header">
-            <div class="section-tag">// achievements</div>
-            <h2 class="section-title">Competitions & Recognition</h2>
-            <p class="section-desc">National-level wins, research selections, and certifications.</p>
-        </div>
-        <div class="achieve-grid">
-            <div class="achieve-card">
-                <div class="achieve-icon">🏆</div>
-                <div class="achieve-content">
-                    <h4>Connexions — Multi-College Champion</h4>
-                    <p>1st place across KRCE, KRCT, Anna University BIT Campus & Mount Zion College</p>
-                    <span class="achieve-rank">1st Place ×4</span>
-                </div>
-            </div>
-            <div class="achieve-card">
-                <div class="achieve-icon">🔑</div>
-                <div class="achieve-content">
-                    <h4>Key Quest + Connexions</h4>
-                    <p>National-level Technical Symposium @ K. Ramakrishna College of Engineering, Trichy</p>
-                    <span class="achieve-rank">1st Place</span>
-                </div>
-            </div>
-            <div class="achieve-card">
-                <div class="achieve-icon">📄</div>
-                <div class="achieve-content">
-                    <h4>Paper Presentation</h4>
-                    <p>National-level Technical Symposium @ Sudharsan College of Engineering, Pudukkottai</p>
-                    <span class="achieve-rank">2nd Prize</span>
-                </div>
-            </div>
-            <div class="achieve-card">
-                <div class="achieve-icon">🎵</div>
-                <div class="achieve-content">
-                    <h4>AI Music Contest</h4>
-                    <p>National-level Symposium @ Mookambigai College of Engineering, Pudukkottai</p>
-                    <span class="achieve-rank">3rd Place</span>
-                </div>
-            </div>
-            <div class="achieve-card">
-                <div class="achieve-icon">🤖</div>
-                <div class="achieve-content">
-                    <h4>Agentic & Generative AI Workshop</h4>
-                    <p>Conducted by Ditto Security @ NIT Trichy, March 2026</p>
-                    <span class="achieve-rank">Certified</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-        <div class="section-header">
-            <div class="section-tag">// education</div>
-            <h2 class="section-title">Education</h2>
-        </div>
-        <div class="exp-card">
-            <div class="exp-header">
-                <div>
-                    <div class="exp-role">B.Tech in Artificial Intelligence & Data Science</div>
-                    <div class="exp-org">M.I.E.T Engineering College, Tiruchirappalli</div>
-                </div>
-                <div class="exp-meta">
-                    <div class="exp-date">Sep 2023 – Present (Expected 2027)</div>
-                    <div class="exp-location">CGPA: 8.3/10</div>
-                </div>
-            </div>
-            <div class="exp-details">
-                <ul>
-                    <li>Relevant Coursework: Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Data Structures & Algorithms, Database Management Systems, Cloud Computing</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p class="footer-text">Open to research internships, MLE/MLOps roles, and healthcare AI opportunities.</p>
-        <div class="footer-links">
-            <a href="mailto:gkrosh.0712@gmail.com" target="_blank">Email</a>
-            <a href="https://linkedin.com/in/keerthikroshan" target="_blank">LinkedIn</a>
-            <a href="https://github.com/KeerthikRoshan7" target="_blank">GitHub</a>
-        </div>
-        <p class="footer-copy">© 2026 Keerthik Roshan G. Built with curiosity and caffeine.</p>
-    </footer>
+    <!-- Scripts -->
+    <script src="js/cybersigil.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
